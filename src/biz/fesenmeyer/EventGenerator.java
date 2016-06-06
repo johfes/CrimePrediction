@@ -4,14 +4,14 @@ import java.util.Random;
 
 public class EventGenerator {
 	
-	public static void generateCrime(String location){
-		Crime crime = new Crime(location);
+	public static void generateCrime(String location, String type){
+		Crime crime = new Crime(location, type);
 		Main.getCepRT().sendEvent(crime);
 	}
 	
-	public static void generateArrest(String location){
+	public static void generateArrest(String location, String crimeType){
 		if(generateRandomInt(1, 10)> 8){
-			Arrest arrest = new Arrest(location);
+			Arrest arrest = new Arrest(location, crimeType);
 			Main.getCepRT().sendEvent(arrest);
 		}
 	}

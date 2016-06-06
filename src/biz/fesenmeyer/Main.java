@@ -16,6 +16,7 @@ public class Main {
 	private static EPRuntime cepRT;
 	private static boolean loop = true;
 	private static String location;
+	private static String crimeType;
 	
 	public static EPRuntime getCepRT() {
 		return cepRT;
@@ -29,16 +30,18 @@ public class Main {
 		initCEP();
 	    BufferedReader br = new BufferedReader
 	    					(new InputStreamReader(System.in));
-	    System.out.print("Welcher Ort soll überwacht werden?");
 	    try {
-			location = br.readLine();
+	    System.out.print("Welcher Ort soll überwacht werden?");
+		location = br.readLine();
+		System.out.println("Welche Straftat soll überwacht werden?");
+		crimeType = br.readLine();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	
 		for(int i=0; loop; i++){
-			EventGenerator.generateCrime(location);
-			EventGenerator.generateArrest(location);
+			EventGenerator.generateCrime(location, crimeType);
+			EventGenerator.generateArrest(location, crimeType);
 		}
 	}
 	

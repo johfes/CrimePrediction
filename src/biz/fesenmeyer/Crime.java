@@ -1,20 +1,25 @@
 package biz.fesenmeyer;
 
 public class Crime {
-	String location;
+	private String location;
+	private String type;
 
-	public Crime(String location) {
+	public Crime(String location, String type) {
 		super();
 		this.location = location;
+		this.type = type;
 	}
 
 	public String getLocation() {
 		return location;
 	}
 
+	public String getType() {
+		return type;
+	}
+
 	@Override
 	public String toString() {
-		return "Crime [location=" + location + "]";
+		return type + " in "+location;
 	}
-	
 }
